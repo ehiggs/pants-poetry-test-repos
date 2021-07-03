@@ -1,0 +1,9 @@
+[GLOBAL]
+print_stacktrace = false
+
+pants_version = "2.6.x"
+backend_packages = [
+  "pants.backend.python", 
+  "pants.backend.python.lint.black", 
+  "pants.backend.python.lint.flake8"
+]
