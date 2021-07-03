@@ -1,13 +1,13 @@
 [tool.poetry]
-name = "project-app"
+name = "multirepo-1"
 version = "0.1.0"
 description = ""
 authors = ["Your Name <you@example.com>"]
 
 [tool.poetry.dependencies]
 python = "^3.9"
-Flask = "2.0.1"
-project-models = {path = "../project-models", develop=true}
+project-models = {path = "project-models"}
+project-app = {path = "project-app"}
 
 [tool.poetry.dev-dependencies]
 
