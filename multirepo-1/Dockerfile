@@ -1,8 +1,6 @@
 FROM python:3.9-slim AS base
 
-ARG APPLICATION
-ENV APPLICATION=${APPLICATION} \
-  PYTHONFAULTHANDLER=1 \
+ENV PYTHONFAULTHANDLER=1 \
   PYTHONUNBUFFERED=1 \
   PYTHONHASHSEED=random \
   PIP_NO_CACHE_DIR=off \
@@ -19,7 +17,6 @@ RUN pip install "poetry==$POETRY_VERSION"
 
 # Copy only requirements to cache them in docker layer
 WORKDIR /code
-#COPY "$APPLICATION"/poetry.lock "$APPLICATION"/pyproject.toml /code/
 
 # Creating folders, and files for a project:
 COPY . /code
@@ -27,14 +24,11 @@ COPY . /code
 RUN ./pants package "$APPLICATION"
 
 FROM base as final
-ARG APPLICATION
-ENV APPLICATION=${APPLICATION} \
-  PYTHONFAULTHANDLER=1 \
+ENV PYTHONFAULTHANDLER=1 \
   PYTHONUNBUFFERED=1 \
   PYTHONHASHSEED=random
 
 WORKDIR /app
-COPY --from=base /code/dist/"$APPLICATION"/"${APPLICATION}.pex" /app
-RUN ln -s /app/"$APPLICATION".pex /app/run
-ENTRYPOINT ["/app/run"]
+COPY --from=base /code/dist/*/*.pex /app
+ENTRYPOINT ["/bin/sh"]
 

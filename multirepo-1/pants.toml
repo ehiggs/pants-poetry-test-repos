@@ -11,6 +11,7 @@ backend_packages = [
 [source]
 root_patterns = [
   "/project-app",
+  "/project-app-async",
   "/project-models",
 ]
 
