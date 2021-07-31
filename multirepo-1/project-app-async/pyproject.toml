@@ -1,14 +1,14 @@
 [tool.poetry]
-name = "multirepo-1"
+name = "project-app-async"
 version = "0.1.0"
 description = ""
 authors = ["Your Name <you@example.com>"]
 
 [tool.poetry.dependencies]
 python = "^3.9"
-project-models = {path = "project-models"}
-project-app = {path = "project-app"}
-project-app-async = {path = "project-app-asnyc"}
+fastapi = "0.66.0"
+uvicorn = "0.14.0"
+project-models = {path = "../project-models", develop=true}
 
 [tool.poetry.dev-dependencies]
 
