@@ -8,6 +8,7 @@ authors = ["Your Name <you@example.com>"]
 python = "^3.9"
 project-models = {path = "project-models"}
 project-app = {path = "project-app"}
+project-app-async = {path = "project-app-asnyc"}
 
 [tool.poetry.dev-dependencies]
 
