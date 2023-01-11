@@ -1,12 +1,16 @@
 [GLOBAL]
 print_stacktrace = false
 
-pants_version = "2.6.0rc1"
+pants_version = "2.14.0"
 backend_packages = [
   "pants.backend.python", 
   "pants.backend.python.lint.black", 
   "pants.backend.python.lint.flake8"
 ]
+
+[anonymous-telemetry]
+enabled = true
+repo_id = "2ad68d84-b1ce-4f36-a28f-9f4f5bcc47d8"
 
 [source]
 root_patterns = [
@@ -15,5 +19,5 @@ root_patterns = [
   "/project-models",
 ]
 
-[python-setup]
+[python]
 interpreter_constraints = ["==3.9.*"]

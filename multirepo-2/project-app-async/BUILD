@@ -1,14 +1,14 @@
 poetry_requirements()
 
-pex_binary(
-    name="project-app-async",
-    entry_point="app.py",
-    zip_safe=False,
-    dependencies=[
-        ':project-app-async0',
-    ],
-)
+python_sources(name="lib")
 
-python_library(
-    name="project-app-async0",
+pex_binary(
+    name="project-app-async-exec",
+    entry_point="app",
+    execution_mode='venv',
+    dependencies=[
+        ':project-app-async',
+	':lib',
+	'project-models:lib',
+    ],
 )

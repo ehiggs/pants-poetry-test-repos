@@ -1,14 +1,14 @@
 poetry_requirements()
 
-pex_binary(
-    name="project-app",
-    entry_point="app",
-    zip_safe=False,
-    dependencies=[
-        ':project-app0',
-    ],
-)
+python_sources(name="lib")
 
-python_library(
-    name="project-app0",
+pex_binary(
+    name="project-app-exec",
+    entry_point="app",
+    execution_mode='venv',
+    dependencies=[
+        ':project-app',
+	':lib',
+	'project-models:lib',
+    ],
 )

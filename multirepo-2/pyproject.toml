@@ -1,5 +1,5 @@
 [tool.poetry]
-name = "multirepo-1"
+name = "multirepo-2"
 version = "0.1.0"
 description = ""
 authors = ["Your Name <you@example.com>"]
@@ -11,6 +11,7 @@ project-app = {path = "project-app"}
 project-app-async = {path = "project-app-asnyc"}
 
 [tool.poetry.dev-dependencies]
+pytest= "7.0.1"
 
 [build-system]
 requires = ["poetry-core>=1.0.0"]
